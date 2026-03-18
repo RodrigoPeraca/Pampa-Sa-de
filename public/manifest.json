@@ -1,25 +1,39 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pampa Saúde",
+  "name": "Pampa Saúde - Tecnologia 1",
+  "description": "Aplicação PWA para mobile",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logoPampa.ico",
+      "sizes": "256x213 64x64 32x32 24x24 16x16",
+      "type": "image/x-icon",
+      "purpose": "any"
     },
     {
-      "src": "logo192.png",
+      "src": "PampaSaude_redondo.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "1024x1024",
+      "purpose": "any"
     },
     {
-      "src": "logo512.png",
+      "src": "PampaSaude_redondo.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "1024x1024",
+      "purpose": "maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
+  "scope": "/",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "screenshots": [
+    {
+      "src": "PampaSaude_redondo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
 }
