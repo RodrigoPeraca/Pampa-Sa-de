@@ -258,33 +258,36 @@ function App() {
       </section>
 
       <section className="panel institution-logos">
-        <h3>Parceiros institucionais</h3>
-        <div className="logos-grid">
-          {INSTITUTION_LOGOS.map((logo) => (
-            <div key={logo.id} className="logo-card">
-              <img src={logo.url} alt={logo.alt} loading="lazy" />
-              <p className="logo-name">{logo.name}</p>
-              <p className="logo-tagline">{logo.tagline}</p>
+        <div className="tab-content">
+          <div className="container">
+            <h3>Parceiros institucionais</h3>
+            <div className="grid">
+              {INSTITUTION_LOGOS.map((logo) => (
+                <div key={logo.id} className="card">
+                  <img src={logo.url} alt={logo.alt} loading="lazy" />
+                  <p className="name">{logo.name}</p>
+                  <p className="role">{logo.tagline}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
       <section className="panel info-tabs">
         <div className="tab-controls">
           <button
-            type="button"
             className={activeInfoTab === 'devs' ? 'active' : ''}
             onClick={() => setActiveInfoTab('devs')}
           >
             Desenvolvedores
           </button>
+
           <button
-            type="button"
             className={activeInfoTab === 'unipampa' ? 'active' : ''}
             onClick={() => setActiveInfoTab('unipampa')}
           >
-            Sobre a Unipampa
+            Unipampa  
           </button>
         </div>
 
@@ -293,15 +296,17 @@ function App() {
           <p>{TAB_CONTENT[activeInfoTab].description}</p>
 
           {activeInfoTab === 'devs' && (
-            <div className="profiles">
+            <div className="container">
+              <div className="grid"> 
               {DEVELOPERS.map((person) => (
-                <div key={person.name} className="profile-card">
-                  <h4>{person.name}</h4>
-                  <p>{person.role}</p>
-                  <p>{person.focus}</p>
-                  <a href={`mailto:${person.contact}`}>{person.contact}</a>
+                <div key={person.name} className="card">
+                  <h3 className="name">👤 {person.name}</h3>
+                  <p className="role">{person.role}</p>
+                  <p className="focus">💻 {person.focus}</p>
+                  <a href={`mailto:${person.contact}`}>📧 {person.contact}</a>
                 </div>
               ))}
+              </div>
             </div>
           )}
 

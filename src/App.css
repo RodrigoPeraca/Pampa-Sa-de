@@ -295,3 +295,108 @@
   }
 
 }
+
+
+/* Profile cards */
+.container {
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  padding: 24px;
+  border-radius: 20px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-size: 14px;
+  color: #374151;
+}
+
+.focus {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 6px 0;
+}
+
+.email {
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.email:hover {
+  text-decoration: underline;
+}
+
+/* Botoes mobile */
+.tab-controls {
+  display: flex;
+  gap: 8px;
+  background: #e5e7eb;
+  padding: 6px;
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.tab-controls button {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.tab-controls button:hover {
+  background: #d1d5db;
+}
+
+.tab-controls button.active {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .tab-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .tab-controls button {
+    flex: 1;
+    text-align: center;
+  }
+}
