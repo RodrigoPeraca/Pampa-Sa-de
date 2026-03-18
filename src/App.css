@@ -89,7 +89,7 @@
 
 .panel {
   background: white;
-  margin: -2rem auto 2rem;
+  margin: -12px auto 12px;
   width: 92%;
   padding: 1.25rem;
   border-radius: 18px;
@@ -302,6 +302,9 @@
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
   padding: 24px;
   border-radius: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -355,6 +358,20 @@
 
 .email:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* vira 1 coluna */
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
 }
 
 /* Botoes mobile */
