@@ -503,6 +503,7 @@ const TYPE_LABELS = {
   SAIS: 'Serviço de Atenção Integral à Saúde',
   UPA: 'Unidade de Pronto Atendimento',
   Hospital: 'Hospital',
+  SAMU: 'Serviço de Atendimento Móvel de Urgência',
 };
 
 const INSTITUTION_LOGOS = [
