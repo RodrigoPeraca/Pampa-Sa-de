@@ -669,6 +669,8 @@ function App() {
     });
   }, [searchTerm, filterType]);
 
+  const hasFilter = searchTerm.trim() !== '' || filterType !== 'all';
+
   return (
     <div className="app-shell">
       <header className="hero">
@@ -731,24 +733,27 @@ function App() {
         </p>
       </section>
 
-      <section className="panel institution-logos">
-        <div className="tab-content">
-          <div className="container">
-            <h3>Parceiros institucionais</h3>
-            <div className="grid">
-              {INSTITUTION_LOGOS.map((logo) => (
-                <div key={logo.id} className="card">
-                  <img src={logo.url} alt={logo.alt} loading="lazy" />
-                  <p className="name">{logo.name}</p>
-                  <p className="role">{logo.tagline}</p>
-                </div>
-              ))}
+      {!hasFilter && (
+        <section className="panel institution-logos">
+          <div className="tab-content">
+            <div className="container">
+              <h3>Parceiros institucionais</h3>
+              <div className="grid">
+                {INSTITUTION_LOGOS.map((logo) => (
+                  <div key={logo.id} className="card">
+                    <img src={logo.url} alt={logo.alt} loading="lazy" />
+                    <p className="name">{logo.name}</p>
+                    <p className="role">{logo.tagline}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="panel info-tabs">
+      {!hasFilter && (
+        <section className="panel info-tabs">
         <div className="tab-controls">
           <button
             className={activeInfoTab === 'devs' ? 'active' : ''}
@@ -801,6 +806,7 @@ function App() {
           )}
         </div>
       </section>
+      )}
 
       <section className="cards-grid">
         {filteredFacilities.map((facility) => (
