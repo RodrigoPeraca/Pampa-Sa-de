@@ -11,15 +11,19 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3241-1588',
     services: [
-      'Clínica Geral',
-      'Sala de Vacinas',
-      'Saúde da Mulher',
-      'Dispensação de medicamentos',
+      "clinico_geral",
+      "ginecologia",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "praticas_integrativas",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/QEk2Kc8hfdkmWR728',
     notes:
-      'Ponto de referência para atendimentos de média complexidade e marcações do e-SUS.',
+      'Unidade básica com atendimento clínico, vacinação, pré-natal e ações de promoção da saúde.',
   },
   {
     id: 'ESF Centro-Social-Urbano',
@@ -30,15 +34,17 @@ const FACILITIES = [
     hours: 'Seg a Sex · 8h às 18h',
     phone: '(53) 3241-0042',
     services: [
-      'Atendimento multiprofissional da ESF',
-      'Pré-natal',
-      'Saúde da Criança',
-      'Visitas domiciliares',
+      "clinico_geral",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/6NsLJbufWFrTmJTD8',
     notes:
-      'Equipe integrada ao Programa Universidade Aberta do SUS com participação da Unipampa.',
+      'Unidade de saúde da família que realiza atendimentos básicos, prevenção de doenças e acompanhamento comunitário.',
   },
   {
     id: 'ESF-Damé',
@@ -49,14 +55,17 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3242-2476',
     services: [
-      'Estratégia Saúde da Família',
-      'Grupos de Hipertensão/Diabetes',
-      'Acolhimento odontológico',
+      "clinico_geral",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/8yeCTE56M6Vow9Be7',
     notes:
-      'Foco em vigilância ativa com apoio dos laboratórios de Engenharia de Computação da Unipampa.',
+      'Posto de saúde com serviços básicos, incluindo consultas, vacinação e acompanhamento da saúde da população local.',
   },
   {
     id: 'UBS-Ivo-Ferronato',
@@ -67,14 +76,18 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 12h, 13h30 às 17h',
     phone: '(53) 3247-6004',
     services: [
-      'Clínica Geral',
-      'Saúde Bucal',
-      'Farmácia Básica',
-      'Curativos e procedimentos',
+      "clinico_geral",
+      "enfermagem",
+      "vacinacao",
+      "pre_natal",
+      "acompanhamento_hipertensao_diabetes",
+      "visita_domiciliar",
+      "encaminhamentos",
+      "dispensacao_medicamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/dMaW6zD4dL3kMNqC6',
-    notes: 'Integra o eixo de telessaúde experimental com alunos da Engenharia de Computação.',
+    notes: 'Unidade básica que oferece atendimento clínico, vacinação, pré-natal e acompanhamento de pacientes da comunidade.',
   },
   {
     id: 'UBS-Passo-das-Pedras',
@@ -85,14 +98,19 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h',
     phone: '(53) 3240-6760',
     services: [
-      'Estratégia Saúde da Família',
-      'Acompanhamento de gestantes',
-      'Assistência social e NASF',
+      "clinico_geral",
+      "ginecologia",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "teleconsultoria",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/LCpCQfUmqqijEz2d6',
     notes:
-      'Equipe com agentes comunitários conectados ao observatório Pampa Saúde da Unipampa.',
+      'Posto de saúde que oferece consultas médicas, vacinação, pré-natal e acompanhamento da comunidade.',
   },
   {
     id: 'UBS-ESF-Prado-Velho',
@@ -103,15 +121,17 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 17h',
     phone: '(53) 3247-3876',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/RDvrhRxRKW7EoE9P7',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade de saúde da família que oferece atendimento básico, vacinação, pré-natal e acompanhamento contínuo da comunidade.',
   },
   {
     id: 'UBS-ESF-São-Martin',
@@ -122,15 +142,20 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3247-1385',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "ginecologia",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "acompanhamento_familiar",
+      "encaminhamentos",
+      "educacao_em_saude",
     ],
     googleMaps:
       'https://maps.app.goo.gl/eztGbUAvzWFctPb97',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Equipe de saúde da família com foco em prevenção, consultas médicas e acompanhamento contínuo das famílias da região.',
   },
   {
     id: 'UBS-ESF-Floresta',
@@ -141,15 +166,20 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 17h30',
     phone: '(53) ---------',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "enfermagem",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "acompanhamento_cronicos",
+      "encaminhamentos",
+      "promocao_saude",
     ],
     googleMaps:
       'https://maps.app.goo.gl/BSDQySfhBWTYyYHW7',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade de atenção primária com atendimento básico, vacinação, pré-natal e visitas domiciliares.',
   },
   {
     id: 'UBS-ESF-Morgado-Rosa',
@@ -160,15 +190,18 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3242-8518',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "enfermagem",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/nutertoSDxGP8s5YA',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade de atenção primária que atende a população da área com consultas básicas, vacinação, pré-natal e acompanhamento familiar.',
   },
   {
     id: 'UBS-ESF-Santa-Cecília',
@@ -179,15 +212,19 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3247-1356',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "ginecologia",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "encaminhamentos",
+      "educacao_em_saude",
     ],
     googleMaps:
       'https://maps.app.goo.gl/k1iW7i8hjvxUnwz36',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Equipe de saúde da família focada em prevenção, consultas médicas, vacinação e acompanhamento contínuo dos moradores da região.',
   },
   {
     id: 'UBS-Malafáia',
@@ -198,15 +235,17 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 11h30, 13h30 às 16h30',
     phone: '(53) 3242-3016',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+        "enfermagem",
+        "vacinacao",
+        "pre_natal",
+        "dispensacao_medicamentos",
+        "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/e1fgdUYuPsN4Am79A',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Posto de saúde que oferece atendimento clínico básico, vacinação, curativos e encaminhamento para especialistas.',
   },
   {
     id: 'ESF-Dois-Irmãos',
@@ -217,15 +256,19 @@ const FACILITIES = [
     hours: 'Seg a Sex · 8h às 17h',
     phone: '(53) 3241-0774',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "ginecologia",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "teleconsultoria",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/BBJ7h5F3wsfn1jZg6',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade de atenção primária com foco em consultas básicas, vacinação, pré-natal e saúde da família.',
   },
   {
     id: 'UBS-São-Bernardo',
@@ -236,15 +279,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 12h, 13h30 às 17h',
     phone: '(53) 3241-7990',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "atencao_primaria",
+      "consulta_ambulatorial",
+      "acompanhamento_pacientes",
+      "encaminhamentos",
+      "visita_domiciliar",
     ],
     googleMaps:
       'https://maps.app.goo.gl/pADDdEhcNWL21ry86',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Equipe de saúde da família que atende com consultas, acompanhamento de pacientes e encaminhamentos pelo SUS.',
   },
   {
     id: 'Posto-de-Saúde-Sá-Mommany',
@@ -255,15 +299,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · 8h às 11h',
     phone: '(53) 3242-5390',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "vacinacao",
+      "curativos",
+      "pre_natal",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/8uUGMHjPZHDhPH1P8',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade básica com atendimentos simples como consultas, vacinação, curativos e encaminhamentos pelo SUS.',
   },
   {
     id: 'UBS-CAIC',
@@ -274,15 +319,18 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 16h45',
     phone: '(53) 3241-1552',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "odontologia",
+      "farmacia",
+      "pre_natal",
+      "prontuario_paciente",
+      "vacinacao",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/U4RcQHBZsaN48xGQ9',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade básica com atendimento clínico, vacinação, pré-natal, farmácia e serviços odontológicos.',
   },
   {
     id: 'Posto-de-Saúde-Camilo-Gomes',
@@ -293,15 +341,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 17h30',
     phone: '(53) 3242-2433',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "vacinacao",
+      "curativos",
+      "pre_natal",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/MuJGhk3iQ4TbA8B87',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Posto voltado à atenção primária com serviços essenciais de saúde, prevenção e encaminhamento de pacientes.',
   },
   {
     id: 'Centro-Referência-em-Tuberculose',
@@ -312,15 +361,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · *** às ***',
     phone: '(53) 3921-7060',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "diagnostico_tuberculose",
+      "tratamento_tuberculose",
+      "acompanhamento_pacientes",
+      "dispensacao_medicamentos",
+      "vigilancia_epidemiologica",
     ],
     googleMaps:
       'https://maps.app.goo.gl/CnmwW8nMN1pRsv3m7',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade especializada no diagnóstico, tratamento e acompanhamento de pacientes com tuberculose.',
   },
   {
     id: 'Mathilde-Fayad-CAPS-I',
@@ -331,15 +381,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · *** às ***',
     phone: '(53) 3242-1495',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "atendimento_psicologico",
+      "atendimento_psiquiatrico",
+      "acompanhamento_intensivo",
+      "oficinas_terapeuticas",
+      "atendimento_infantil",
     ],
     googleMaps:
       'https://maps.app.goo.gl/sbki39gvefkDmT8D8',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Centro de atenção psicossocial voltado ao atendimento de crianças e adolescentes com transtornos mentais.',
   },
   {
     id: 'CAPS-II-Saúde-Mental',
@@ -350,15 +401,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · 8h às 17h',
     phone: '(53) 3247-3248',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "atendimento_psicologico",
+      "atendimento_psiquiatrico",
+      "acompanhamento_continuo",
+      "grupos_terapeuticos",
+      "reabilitacao_psicossocial",
     ],
     googleMaps:
       'https://maps.app.goo.gl/em1ruGWbxFfw3gqq5',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade especializada em saúde mental para adultos, com acompanhamento psicológico, psiquiátrico e reabilitação.',
   },
   {
     id: 'CAPS-AD',
@@ -369,15 +421,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · *** às ***',
     phone: '(53) 3247-7243',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "tratamento_dependencia_quimica",
+      "atendimento_psicologico",
+      "atendimento_psiquiatrico",
+      "grupos_apoio",
+      "reducao_danos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/NgAXio6RKQUsUDxp7',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Centro especializado no tratamento de dependência de álcool e drogas, com apoio psicológico e psiquiátrico.',
   },
   {
     id: 'SAIS-Bagé',
@@ -388,15 +441,15 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 17h',
     phone: '(53) 3242-2433',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "atendimento_especializado",
+      "consultas_especialidades",
+      "exames",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/h4n6jqa2fyJgd4qm8',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Serviço de atendimento especializado com consultas médicas específicas, exames e encaminhamentos.',
   },
   {
     id: 'UBS-ESF-Doutor-Jorge-Sui-e-Grillo',
@@ -407,15 +460,18 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3242-7755',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "enfermagem",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "visita_domiciliar",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/NgAXio6RKQUsUDxp7',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade de saúde da família com foco em atendimento básico, prevenção de doenças e acompanhamento da comunidade.',
   },
   {
     id: 'SAMU-Base-Bagé',
@@ -426,15 +482,15 @@ const FACILITIES = [
     hours: 'Seg a Sex · *** às ***',
     phone: '(53) 99998-6283',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "atendimento_pre_hospitalar",
+      "suporte_basico_vida",
+      "suporte_avancado_vida",
+      "remocao_pacientes",
     ],
     googleMaps:
       'https://maps.app.goo.gl/a6E4vfdJ8trZKajy9',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Serviço móvel de urgência que atende emergências pelo telefone 192, realizando socorro e transporte de pacientes.',
   },
   {
     id: 'UBS-Ivone',
@@ -445,15 +501,16 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3247-3273',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "clinico_geral",
+      "vacinacao",
+      "pre_natal",
+      "enfermagem",
+      "encaminhamentos",
     ],
     googleMaps:
       'https://maps.app.goo.gl/Bj6HJb9b6EXh9XbPA',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade básica com atendimento clínico, vacinação, pré-natal e encaminhamento dentro da rede SUS.',
   },
   {
     id: 'UPA-Padre-Honorino',
@@ -464,15 +521,16 @@ const FACILITIES = [
     hours: 'Todos os dias · 24h',
     phone: '(53) 3247-7243',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "atendimento_urgencia",
+      "atendimento_emergencia",
+      "observacao",
+      "estabilizacao_pacientes",
+      "exames_basicos"
     ],
     googleMaps:
       'https://maps.app.goo.gl/na7WGyFayy58ihoB6',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Unidade de pronto atendimento para urgências e emergências, funcionando sem necessidade de agendamento.',
   },
   {
     id: 'Hospital-Universitario-Dr-Mário-Araújo',
@@ -483,15 +541,41 @@ const FACILITIES = [
     hours: 'Todos os dias · 7h30 às 12h, 13h30 às 18h',
     phone: '(53) 3247-7243',
     services: [
-      'Clínica Geral',
-      'Pediatria',
-      'Saúde Mental',
-      'Serviços laboratoriais básicos',
+      "internacao",
+      "cirurgias",
+      "consultas_especializadas",
+      "exames_complexos",
+      "atendimento_ambulatorial",
+      "ensino_pesquisa"
     ],
     googleMaps:
       'https://maps.app.goo.gl/Qiuj3jrw2XBYVpvh6',
     notes:
-      'Piloto de indicadores inteligentes desenvolvido pelo curso de Engenharia de Computação/Unipampa.',
+      'Hospital de média e alta complexidade com internações, cirurgias, exames e atendimento especializado.',
+  },
+  {
+    id: 'ESF Castro Alves',
+    name: 'ESF Castro Alves',
+    type: 'ESF',
+    neighborhood: 'Popular',
+    address: 'R. Nice Nocchi, s/n - Castro Alves, Bagé - RS',
+    hours: 'Segunda a Sexta · 7h30 às 12h, 13h30 às 17h',
+    phone: '(53) 3247-7243',
+    services: [
+      "clinico_geral",
+      "ginecologia",
+      "vacinacao",
+      "pre_natal",
+      "saude_da_familia",
+      "praticas_integrativas",
+      "teleconsultoria",
+      "visita_domiciliar",
+      "encaminhamentos",
+    ],
+    googleMaps:
+      'https://maps.app.goo.gl/Qiuj3jrw2XBYVpvh6',
+    notes:
+      'Equipe de saúde da família que realiza atendimento básico, vacinação, acompanhamento familiar e encaminhamentos.',
   },
 ];
 
@@ -631,6 +715,11 @@ function App() {
             <option value="all">Todas as tipologias</option>
             <option value="UBS">Unidades Básicas de Saúde</option>
             <option value="ESF">Estratégias Saúde da Família</option>
+            <option value="CAPS">Centros de Atenção Psicossocial</option>
+            <option value="SAIS">Serviços de Atenção Integral à Saúde</option>
+            <option value="UPA">Unidades de Pronto Atendimento</option>
+            <option value="Hospital">Hospitais</option>
+            <option value="SAMU">Serviço de Atendimento Móvel de Urgência</option>
           </select>
           <button type="button" onClick={() => setFilterType('all')}>
             Limpar filtro
