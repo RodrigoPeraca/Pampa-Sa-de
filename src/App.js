@@ -11,7 +11,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3241-1588',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "ginecologia",
       "vacinacao",
       "pre_natal",
@@ -34,7 +34,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 8h às 18h',
     phone: '(53) 3241-0042',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "vacinacao",
       "pre_natal",
       "saude_da_familia",
@@ -55,7 +55,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3242-2476',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "vacinacao",
       "pre_natal",
       "saude_da_familia",
@@ -76,7 +76,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 12h, 13h30 às 17h',
     phone: '(53) 3247-6004',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "enfermagem",
       "vacinacao",
       "pre_natal",
@@ -98,7 +98,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h',
     phone: '(53) 3240-6760',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "ginecologia",
       "vacinacao",
       "pre_natal",
@@ -121,7 +121,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 17h',
     phone: '(53) 3247-3876',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "vacinacao",
       "pre_natal",
       "saude_da_familia",
@@ -142,7 +142,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3247-1385',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "ginecologia",
       "vacinacao",
       "pre_natal",
@@ -166,7 +166,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 17h30',
     phone: '(53) ---------',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "enfermagem",
       "vacinacao",
       "pre_natal",
@@ -190,7 +190,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3242-8518',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "enfermagem",
       "vacinacao",
       "pre_natal",
@@ -212,7 +212,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3247-1356',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "ginecologia",
       "vacinacao",
       "pre_natal",
@@ -235,7 +235,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 11h30, 13h30 às 16h30',
     phone: '(53) 3242-3016',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
         "enfermagem",
         "vacinacao",
         "pre_natal",
@@ -256,7 +256,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 8h às 17h',
     phone: '(53) 3241-0774',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "ginecologia",
       "vacinacao",
       "pre_natal",
@@ -299,7 +299,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 8h às 11h',
     phone: '(53) 3242-5390',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "vacinacao",
       "curativos",
       "pre_natal",
@@ -319,7 +319,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 16h45',
     phone: '(53) 3241-1552',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "odontologia",
       "farmacia",
       "pre_natal",
@@ -341,7 +341,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 7h30 às 17h30',
     phone: '(53) 3242-2433',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "vacinacao",
       "curativos",
       "pre_natal",
@@ -460,7 +460,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3242-7755',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "enfermagem",
       "vacinacao",
       "pre_natal",
@@ -501,7 +501,7 @@ const FACILITIES = [
     hours: 'Seg a Sex · 13h30 às 17h30',
     phone: '(53) 3247-3273',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "vacinacao",
       "pre_natal",
       "enfermagem",
@@ -562,7 +562,7 @@ const FACILITIES = [
     hours: 'Segunda a Sexta · 7h30 às 12h, 13h30 às 17h',
     phone: '(53) 3247-7243',
     services: [
-      "clinico_geral",
+      "Clinico Geral",
       "ginecologia",
       "vacinacao",
       "pre_natal",
