@@ -300,7 +300,7 @@
 /* Profile cards */
 .container {
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
-  padding: 24px;
+  padding: 18px;
   border-radius: 20px;
   width: 100%;
   max-width: 100%;
@@ -317,41 +317,51 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 12px;
 }
 
 .card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: 0.2s;
+  padding: 14px;
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+}
+
+.health-card {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
 .name {
-  font-size: 18px;
-  font-weight: bold;
-  color: #2563eb;
-  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1d4ed8;
+  margin-bottom: 4px;
+}
+
+.health-card .name {
+  color: #047857;
 }
 
 .role {
-  font-size: 14px;
+  font-size: 13px;
   color: #374151;
 }
 
 .focus {
-  font-size: 14px;
-  color: #6b7280;
-  margin: 6px 0;
+  font-size: 13px;
+  color: #4b5563;
+  margin: 4px 0;
 }
 
 .email {
-  font-size: 13px;
+  font-size: 12px;
   color: #2563eb;
   text-decoration: none;
 }

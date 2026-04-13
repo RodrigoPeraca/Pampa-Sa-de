@@ -608,17 +608,70 @@ const INSTITUTION_LOGOS = [
 ];
 
 const DEVELOPERS = [
+  // 👨‍🏫 ORIENTADORES
   {
-    name: 'Julio Santos',
-    role: 'Acadêmico de Engenharia de Computação - Unipampa',
-    focus: 'Front-end e experiência do usuário',
-    contact: 'julio.santos@aluno.unipampa.edu.br',
+    name: 'Julio Saraçol',
+    role: 'Orientador(a) de Computação',
+    focus: 'Coordenação técnica e desenvolvimento do sistema',
+    contact: 'julio.saracol@unipampa.edu.br',
   },
   {
-    name: 'Equipe Pampa Saúde',
-    role: 'Laboratório de Inovação em Saúde Digital',
-    focus: 'Mapeamento de serviços públicos e integração SUS',
-    contact: 'pampasaude@unipampa.edu.br',
+    name: 'Raquel Garcia',
+    role: 'Orientador(a) da Saúde',
+    focus: 'Validação das informações de saúde e integração com o SUS',
+    contact: 'raquel.garcia@unipampa.edu.br',
+  },
+
+  // 👨‍💻 MONITORES - COMPUTAÇÃO
+  {
+    name: 'Abner Soares',
+    role: 'Monitor(a) de Computação',
+    focus: 'Desenvolvimento e manutenção do sistema',
+    contact: 'abnersoares.aluno@unipampa.edu.br',
+  },
+  {
+    name: 'Fernando Jose',
+    role: 'Monitor(a) de Computação',
+    focus: 'Desenvolvimento e suporte técnico',
+    contact: 'fernandojose.aluno@unipampa.edu.br',
+  },
+  {
+    name: 'Gabriel Machado',
+    role: 'Monitor(a) de Computação',
+    focus: 'Implementação de funcionalidades',
+    contact: 'gabrielmachado.aluno@unipampa.edu.br',
+  },
+  {
+    name: 'Leonardo Manzke',
+    role: 'Monitor(a) de Computação',
+    focus: 'Testes e otimização do sistema',
+    contact: 'leonardomanzke.aluno@unipampa.edu.br',
+  },
+  {
+    name: 'Rodrigo Peraça',
+    role: 'Monitor(a) de Computação',
+    focus: 'Desenvolvimento backend e APIs',
+    contact: 'rodrigoperaca.aluno@unipampa.edu.br',
+  },
+  {
+    name: 'Victor Moreira',
+    role: 'Monitor(a) de Computação',
+    focus: 'Integração e banco de dados',
+    contact: 'victormoreira.aluno@unipampa.edu.br',
+  },
+
+  // 🏥 MONITORES - SAÚDE
+  {
+    name: 'Paolla Gonçalves',
+    role: 'Monitor(a) da Saúde',
+    focus: 'Levantamento de dados e validação de serviços',
+    contact: 'paollagoncalves.aluno@unipampa.edu.br',
+  },
+  {
+    name: 'Sahmira Chamorro',
+    role: 'Monitor(a) da Saúde',
+    focus: 'Organização das informações de saúde pública',
+    contact: 'sahmirachamorro.aluno@unipampa.edu.br',
   },
 ];
 
@@ -777,14 +830,19 @@ function App() {
           {activeInfoTab === 'devs' && (
             <div className="container">
               <div className="grid"> 
-              {DEVELOPERS.map((person) => (
-                <div key={person.name} className="card">
-                  <h3 className="name">👤 {person.name}</h3>
-                  <p className="role">{person.role}</p>
-                  <p className="focus">💻 {person.focus}</p>
-                  <a href={`mailto:${person.contact}`}>📧 {person.contact}</a>
-                </div>
-              ))}
+              {DEVELOPERS.map((person) => {
+                const isHealthStaff = person.role.includes('Saúde');
+                return (
+                  <div key={person.name} className={`card ${isHealthStaff ? 'health-card' : ''}`}>
+                    <h3 className="name">{isHealthStaff ? '🏥 ' : '👤 '}{person.name}</h3>
+                    <p className="role">{person.role}</p>
+                    <p className="focus">{isHealthStaff ? '🩺' : '💻'} {person.focus}</p>
+                    <a className="email" href={`mailto:${person.contact}`}>
+                      📧 {person.contact}
+                    </a>
+                  </div>
+                );
+              })}
               </div>
             </div>
           )}
