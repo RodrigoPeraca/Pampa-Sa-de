@@ -613,13 +613,13 @@ const DEVELOPERS = [
     name: 'Julio Saraçol',
     role: 'Orientador(a) de Computação',
     focus: 'Coordenação técnica e desenvolvimento do sistema',
-    contact: 'julio.saracol@unipampa.edu.br',
+    contact: 'juliodomingues@unipampa.edu.br',
   },
   {
     name: 'Raquel Garcia',
     role: 'Orientador(a) da Saúde',
     focus: 'Validação das informações de saúde e integração com o SUS',
-    contact: 'raquel.garcia@unipampa.edu.br',
+    contact: 'raquelgarcia@unipampa.edu.br',
   },
 
   // 👨‍💻 MONITORES - COMPUTAÇÃO
