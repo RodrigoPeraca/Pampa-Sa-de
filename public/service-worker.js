@@ -10,8 +10,8 @@ self.addEventListener('install', (event) => {
         '/',
         OFFLINE_URL,
         '/manifest.json',
-        '/logo192.png',
-        '/logo512.png',
+        '/PampaSaude_redondo_192.png',
+        '/PampaSaude_redondo.png',
       ]);
     })
   );
