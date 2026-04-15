@@ -593,17 +593,70 @@ const INSTITUTION_LOGOS = [
 ];
 
 const DEVELOPERS = [
+  // 👨‍🏫 ORIENTADORES
   {
-    name: "Julio Santos",
-    role: "Acadêmico de Engenharia de Computação - Unipampa",
-    focus: "Front-end e experiência do usuário",
-    contact: "julio.santos@aluno.unipampa.edu.br",
+    name: "Julio Saraçol",
+    role: "Orientador(a) de Computação",
+    focus: "Coordenação técnica e desenvolvimento do sistema",
+    contact: "juliodomingues@unipampa.edu.br",
   },
   {
-    name: "Equipe Pampa Saúde",
-    role: "Laboratório de Inovação em Saúde Digital",
-    focus: "Mapeamento de serviços públicos e integração SUS",
-    contact: "pampasaude@unipampa.edu.br",
+    name: "Raquel Garcia",
+    role: "Orientador(a) da Saúde",
+    focus: "Validação das informações de saúde e integração com o SUS",
+    contact: "raquelgarcia@unipampa.edu.br",
+  },
+
+  // 👨‍💻 MONITORES - COMPUTAÇÃO
+  {
+    name: "Abner Soares",
+    role: "Monitor(a) de Computação",
+    focus: "Desenvolvimento e manutenção do sistema",
+    contact: "abnersoares.aluno@unipampa.edu.br",
+  },
+  {
+    name: "Fernando Jose",
+    role: "Monitor(a) de Computação",
+    focus: "Desenvolvimento e suporte técnico",
+    contact: "fernandojose.aluno@unipampa.edu.br",
+  },
+  {
+    name: "Gabriel Machado",
+    role: "Monitor(a) de Computação",
+    focus: "Implementação de funcionalidades",
+    contact: "gabrielmachado.aluno@unipampa.edu.br",
+  },
+  {
+    name: "Leonardo Manzke",
+    role: "Monitor(a) de Computação",
+    focus: "Testes e otimização do sistema",
+    contact: "leonardomanzke.aluno@unipampa.edu.br",
+  },
+  {
+    name: "Rodrigo Peraça",
+    role: "Monitor(a) de Computação",
+    focus: "Desenvolvimento backend e APIs",
+    contact: "rodrigoperaca.aluno@unipampa.edu.br",
+  },
+  {
+    name: "Victor Moreira",
+    role: "Monitor(a) de Computação",
+    focus: "Integração e banco de dados",
+    contact: "victormoreira.aluno@unipampa.edu.br",
+  },
+
+  // 🏥 MONITORES - SAÚDE
+  {
+    name: "Paolla Gonçalves",
+    role: "Monitor(a) da Saúde",
+    focus: "Levantamento de dados e validação de serviços",
+    contact: "paollagoncalves.aluno@unipampa.edu.br",
+  },
+  {
+    name: "Sahmira Chamorro",
+    role: "Monitor(a) da Saúde",
+    focus: "Organização das informações de saúde pública",
+    contact: "sahmirachamorro.aluno@unipampa.edu.br",
   },
 ];
 
@@ -765,7 +818,8 @@ function App() {
         </div>
       </header>
 
-      {activePage === "servicos" ? (
+              
+      {activePage === "servicos" ? (    //page do meno "serviços de saude"
         <section className="panel services-page">
           <button
             type="button"
@@ -807,6 +861,7 @@ function App() {
             </button>
           </div>
         </section>
+      //Page do menu "Sobre o Pampa Saude"  
       ) : activePage === "sobre" ? (
         <>
           <section className="about-hero">
@@ -838,8 +893,9 @@ function App() {
             <p>
               O objetivo principal é facilitar o acesso da população às
               informações sobre as Unidades Básicas de Saúde (UBS), Estratégias
-              Saúde da Família (ESF), entre outros, disponíveis no município, promovendo o
-              cuidado territorial e a democratização do acesso à saúde pública.
+              Saúde da Família (ESF), entre outros, disponíveis no município,
+              promovendo o cuidado territorial e a democratização do acesso à
+              saúde pública.
             </p>
           </section>
 
@@ -854,37 +910,6 @@ function App() {
               unidades de atenção básica de saúde, fortalecendo o vínculo entre
               a população e o Sistema Único de Saúde (SUS).
             </p>
-          </section>
-
-          <section className="about-card about-card-white">
-            <div className="about-title-row">
-              <span className="about-icon about-icon-dark">👥</span>
-              <h3>Equipe e Desenvolvedores</h3>
-            </div>
-
-            <div className="team-stack">
-              {DEVELOPERS.map((person, index) => (
-                <div
-                  key={person.name}
-                  className={`team-card ${index === 0 ? "team-blue" : "team-green"}`}
-                >
-                  <div className="team-avatar">
-                    {person.name
-                      .split(" ")
-                      .map((part) => part[0])
-                      .slice(0, 2)
-                      .join("")}
-                  </div>
-
-                  <div className="team-content">
-                    <h4>{person.name}</h4>
-                    <p>{person.role}</p>
-                    <p>{person.focus}</p>
-                    <a href={`mailto:${person.contact}`}>{person.contact}</a>
-                  </div>
-                </div>
-              ))}
-            </div>
           </section>
 
           <section className="about-card about-card-white">
@@ -911,6 +936,39 @@ function App() {
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+          <section className="about-card about-card-white">
+            <div className="about-title-row">
+              <span className="about-icon about-icon-dark">👥</span>
+              <h3>Equipe e Desenvolvedores</h3>
+            </div>
+
+            <div className="team-grid">
+              {DEVELOPERS.map((person) => {
+                const isHealthStaff = person.role
+                  .toLowerCase()
+                  .includes("saúde");
+
+                return (
+                  <div
+                    key={person.name}
+                    className={`card ${isHealthStaff ? "health-card" : ""}`}
+                  >
+                    <h3 className="name">
+                      {isHealthStaff ? "🏥 " : "👤 "}
+                      {person.name}
+                    </h3>
+                    <p className="role">{person.role}</p>
+                    <p className="focus">
+                      {isHealthStaff ? "🩺" : "💻"} {person.focus}
+                    </p>
+                    <a className="email" href={`mailto:${person.contact}`}>
+                      📧 {person.contact}
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -940,37 +998,43 @@ function App() {
             </div>
           </section>
 
-          <div className="project-item">
-            <MapPin className="project-icon" size={18} />
-            <div>
-              <strong>Localização</strong>
-              <p>Bagé, Rio Grande do Sul · Brasil</p>
-            </div>
-          </div>
+          <section className="about-card about-card-white">
+            <h3>Dados do Projeto</h3>
 
-          <div className="project-item">
-            <Users className="project-icon" size={18} />
-            <div>
-              <strong>Público-alvo</strong>
-              <p>Comunidade de Bagé e região</p>
-            </div>
-          </div>
+            <div className="project-data">
+              <div className="project-item">
+                <MapPin className="project-icon" size={18} />
+                <div>
+                  <strong>Localização</strong>
+                  <p>Bagé, Rio Grande do Sul · Brasil</p>
+                </div>
+              </div>
 
-          <div className="project-item">
-            <Heart className="project-icon" size={18} />
-            <div>
-              <strong>Cobertura</strong>
-              <p>27 unidades catalogadas · 56 tipos de serviços</p>
-            </div>
-          </div>
+              <div className="project-item">
+                <Users className="project-icon" size={18} />
+                <div>
+                  <strong>Público-alvo</strong>
+                  <p>Comunidade de Bagé e região</p>
+                </div>
+              </div>
 
-          <div className="project-item">
-            <Globe className="project-icon" size={18} />
-            <div>
-              <strong>Idiomas</strong>
-              <p>Português, Español, English</p>
+              <div className="project-item">
+                <Heart className="project-icon" size={18} />
+                <div>
+                  <strong>Cobertura</strong>
+                  <p>27 unidades catalogadas · 56 tipos de serviços</p>
+                </div>
+              </div>
+
+              <div className="project-item">
+                <Globe className="project-icon" size={18} />
+                <div>
+                  <strong>Idiomas</strong>
+                  <p>Português, Español, English</p>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
 
           <section className="about-card about-card-blue">
             <h3>Desenvolvimento Contínuo</h3>
@@ -997,6 +1061,7 @@ function App() {
             </p>
           </footer>
         </>
+
       ) : (
         <>
           <section className="panel search-panel">
@@ -1103,7 +1168,7 @@ function App() {
               <div className="tab-content">
                 <div className="container">
                   <h3>Parceiros institucionais</h3>
-                  <div className="grid">
+                  <div className="team-grid">
                     {INSTITUTION_LOGOS.map((logo) => (
                       <div key={logo.id} className="card">
                         <img src={logo.url} alt={logo.alt} loading="lazy" />
@@ -1141,17 +1206,34 @@ function App() {
 
                 {activeInfoTab === "devs" && (
                   <div className="container">
-                    <div className="grid">
-                      {DEVELOPERS.map((person) => (
-                        <div key={person.name} className="card">
-                          <h3 className="name">👤 {person.name}</h3>
-                          <p className="role">{person.role}</p>
-                          <p className="focus">💻 {person.focus}</p>
-                          <a href={`mailto:${person.contact}`}>
-                            📧 {person.contact}
-                          </a>
-                        </div>
-                      ))}
+                    <div className="team-grid">
+                      {DEVELOPERS.map((person) => {
+                        const isHealthStaff = person.role
+                          .toLowerCase()
+                          .includes("saúde");
+
+                        return (
+                          <div
+                            key={person.name}
+                            className={`card ${isHealthStaff ? "health-card" : ""}`}
+                          >
+                            <h3 className="name">
+                              {isHealthStaff ? "🏥 " : "👤 "}
+                              {person.name}
+                            </h3>
+                            <p className="role">{person.role}</p>
+                            <p className="focus">
+                              {isHealthStaff ? "🩺" : "💻"} {person.focus}
+                            </p>
+                            <a
+                              className="email"
+                              href={`mailto:${person.contact}`}
+                            >
+                              📧 {person.contact}
+                            </a>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
