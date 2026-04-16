@@ -818,8 +818,7 @@ function App() {
         </div>
       </header>
 
-              
-      {activePage === "servicos" ? (    //page do meno "serviços de saude"
+      {activePage === "servicos" ? ( //page do meno "serviços de saude"
         <section className="panel services-page">
           <button
             type="button"
@@ -861,8 +860,8 @@ function App() {
             </button>
           </div>
         </section>
-      //Page do menu "Sobre o Pampa Saude"  
-      ) : activePage === "sobre" ? (
+      ) : //Page do menu "Sobre o Pampa Saude"
+      activePage === "sobre" ? (
         <>
           <section className="about-hero">
             <button
@@ -1061,7 +1060,6 @@ function App() {
             </p>
           </footer>
         </>
-
       ) : (
         <>
           <section className="panel search-panel">
