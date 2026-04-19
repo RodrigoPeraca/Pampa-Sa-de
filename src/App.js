@@ -1237,21 +1237,22 @@ function App() {
                 )}
 
                 {activeInfoTab === "unipampa" && (
-                  <ul className="unipampa-list">
+                  <div>
+                      <ul className="unipampa-list">
                     <li>
-                      <strong>Campus Bagé:</strong> referência em Engenharia de
-                      Computação com laboratórios orientados a soluções para o
-                      SUS.
+                      <strong>Campus Bagé:</strong> Desenvolvimento de soluções tecnológicas por estudantes e pesquisadores, com foco em sistemas aplicados ao SUS e inovação em saúde digital.
                     </li>
                     <li>
-                      <strong>Observatório Pampa Saúde:</strong> monitora
-                      indicadores e apoia equipes das UBS/ESF.
+                      <strong>Observatório Pampa Saúde:</strong> Coleta e análise de dados estratégicos para apoiar decisões, monitorar indicadores e melhorar a eficiência das equipes de saúde.
                     </li>
                     <li>
-                      <strong>Prefeitura Municipal:</strong> integra dados
-                      oficiais de serviços, horários e campanhas de vacinação.
+                      <strong>Prefeitura Municipal:</strong> Integração com dados oficiais, serviços públicos e campanhas, garantindo acesso a informações atualizadas e confiáveis.
                     </li>
                   </ul>
+              <p className="unipampa-footer">
+                Conectando dados, tecnologia e políticas públicas para transformar a saúde em Bagé.
+              </p>
+            </div>
                 )}
               </div>
             </section>
