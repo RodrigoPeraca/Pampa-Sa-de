@@ -5,15 +5,6 @@ import React from 'react';
 import { Menu, X, Home, Hospital, Info } from 'lucide-react';
 import { FACILITIES } from '../data/facilities.js';
 
-// Função auxiliar para contar serviços únicos
-const getTotalServices = () => {
-  const pool = new Set();
-  FACILITIES.forEach((facility) =>
-    facility.services.forEach((service) => pool.add(service)),
-  );
-  return pool.size;
-};
-
 export function Header({ 
   isMenuOpen, 
   setIsMenuOpen, 

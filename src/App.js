@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import "./App.css";
 
 // Imports dos dados
-import { TYPE_LABELS, TAB_CONTENT } from "./data/constants.js";
 import { INSTITUTION_LOGOS } from "./data/institutions.js";
 
 // Imports dos componentes
