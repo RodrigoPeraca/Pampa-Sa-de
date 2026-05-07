@@ -1,24 +1,24 @@
 // src/components/Header.js
 // Componente de cabeçalho (hero) do aplicativo
 
-import React from 'react';
-import { Menu, X, Home, Hospital, Info } from 'lucide-react';
-import { FACILITIES } from '../data/facilities.js';
+import React from "react";
+import { Menu, X, Home, Hospital, Info, Globe } from "lucide-react";
+import { FACILITIES } from "../data/facilities.js";
 
-export function Header({ 
-  isMenuOpen, 
-  setIsMenuOpen, 
-  activePage, 
-  setActivePage, 
-  setSearchTerm, 
+export function Header({
+  isMenuOpen,
+  setIsMenuOpen,
+  activePage,
+  setActivePage,
+  setSearchTerm,
   setFilterType,
-  totalServices 
+  totalServices,
 }) {
   const handleNavClick = (page) => {
     setActivePage(page);
-    if (page === 'home') {
-      setSearchTerm('');
-      setFilterType('all');
+    if (page === "home") {
+      setSearchTerm("");
+      setFilterType("all");
     }
     setIsMenuOpen(false);
   };
@@ -36,7 +36,7 @@ export function Header({
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         <div className="hero-title"></div>
-        
+
         <div className="menu-spacer" />
       </div>
 
@@ -63,27 +63,23 @@ export function Header({
         </div>
 
         <nav className="side-menu-nav">
-          <a
-            href="#Inicio"
-            onClick={() => handleNavClick('home')}
-          >
+          <a href="#Inicio" onClick={() => handleNavClick("home")}>
             <Home size={18} />
             <span>Inicio</span>
           </a>
-          <a
-            href="#unidades"
-            onClick={() => handleNavClick('servicos')}
-          >
+          <a href="#unidades" onClick={() => handleNavClick("servicos")}>
             <Hospital size={18} />
             <span>Serviços de Saúde</span>
           </a>
-          <a
-            href="#sobre"
-            onClick={() => handleNavClick('sobre')}
-          >
+           <a href="#estrangeiros" onClick={() => handleNavClick("foreigners")}>
+            <Globe size={18} />
+            <span>Extranjeros - Foreigners</span>
+          </a>
+          <a href="#sobre" onClick={() => handleNavClick("sobre")}>
             <Info size={18} />
             <span>Sobre o Pampa Saúde</span>
           </a>
+         
         </nav>
       </aside>
 
@@ -92,8 +88,8 @@ export function Header({
         <h1>Pampa Saúde</h1>
         <p className="hero-subtitle">
           Guia rápido das Unidades Básicas de Saúde e Estratégias Saúde da
-          Família em Bagé. Projeto inspirado pela comunidade da Unipampa e
-          pelo curso de Engenharia de Computação.
+          Família em Bagé. Projeto inspirado pela comunidade da Unipampa e pelo
+          curso de Engenharia de Computação.
         </p>
         <div className="hero-tags">
           <span>Unipampa</span>
@@ -103,7 +99,6 @@ export function Header({
       </div>
 
       <div className="hero-stats">
-        
         <div>
           <strong>{FACILITIES.length}</strong>
           <span>Unidades catalogadas</span>
@@ -117,8 +112,7 @@ export function Header({
           <span>Atendimento SUS</span>
         </div>
       </div>
-      <img className='pet-saude-logo' src='/PetSaude_logo.png'
-          alt="PetSaude" />
+      <img className="pet-saude-logo" src="/PetSaude_logo.png" alt="PetSaude" />
     </header>
   );
 }

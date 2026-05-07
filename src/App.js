@@ -15,6 +15,7 @@ import { ServicesPage } from "./components/ServicesPage.js";
 import { AboutPage } from "./components/AboutPage.js";
 import { InfoTabs } from "./components/InfoTabs.js";
 import { InstitutionLogos } from "./components/InstitutionLogos.js";
+import { ForeignersPage } from "./components/ForeignersPage.js";
 
 // Imports do hook
 import { useFacilities } from "./hooks/useFacilities.js";
@@ -24,7 +25,7 @@ function App() {
   const [filterType, setFilterType] = useState("all");
   const [activeInfoTab, setActiveInfoTab] = useState("devs");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'
+  const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'
 
   // Hook personalizado para filtragem
   const { filteredFacilities, totalServices, hasFilter } = useFacilities(
@@ -49,8 +50,11 @@ function App() {
           setFilterType={setFilterType}
           setActivePage={setActivePage}
         />
+        ) : activePage === "foreigners" ? (
+        <ForeignersPage setActivePage={setActivePage} />
       ) : activePage === "sobre" ? (
         <AboutPage setActivePage={setActivePage} />
+      
       ) : (
         <>
           <SearchPanel
