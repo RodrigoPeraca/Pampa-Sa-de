@@ -23,9 +23,9 @@
 /* LOGO/ PET Saúde */
 .pet-saude-logo {
   position: absolute;
-  top: 22px;      /* sobe/desce */
-  right: 230px;    /* esquerda/direita */
-  height: 100px;   /* tamanho */
+  top: 22px; /* sobe/desce */
+  right: 230px; /* esquerda/direita */
+  height: 100px; /* tamanho */
   width: auto;
   object-fit: contain;
   z-index: 5;
@@ -86,9 +86,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   text-align: center;
-
 }
-
 
 .hero-stats div {
   padding: 0.75rem;
@@ -872,4 +870,116 @@
 /* Bolinha estilizada */
 .unipampa-list li::marker {
   color: #3b82f6;
+}
+/* Página de estrangeiros */
+.foreigners-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.foreigners-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foreigners-icon-blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.foreigners-italic {
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.foreigners-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b3b2e;
+  margin-bottom: 10px;
+}
+
+.foreigners-grid {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .foreigners-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.foreigners-box {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.foreigners-box h4 {
+  margin: 0 0 8px 0;
+}
+
+.foreigners-box ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.foreigners-services {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.foreigners-service {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: #ecfdf5;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.foreigners-service .dot {
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  border-radius: 999px;
+  background: #16a34a;
+  flex: 0 0 auto;
+}
+
+.foreigners-service .title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.foreigners-service .desc {
+  margin: 2px 0 0 0;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.foreigners-warning {
+  margin-top: 14px;
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.foreigners-warning-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #713f12;
+  margin-bottom: 6px;
 }
