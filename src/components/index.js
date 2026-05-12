@@ -9,3 +9,4 @@ export { ServicesPage } from './ServicesPage.js';
 export { AboutPage } from './AboutPage.js';
 export { InfoTabs } from './InfoTabs.js';
 export { InstitutionLogos } from './InstitutionLogos.js';
+export { ForeignersPage } from "./ForeignersPage.js";
