@@ -28,7 +28,7 @@ function App() {
   const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'
 
   // Hook personalizado para filtragem
-  const { filteredFacilities, totalServices, hasFilter } = useFacilities(
+  const { filteredFacilities, totalServices} = useFacilities(
     searchTerm,
     filterType
   );
