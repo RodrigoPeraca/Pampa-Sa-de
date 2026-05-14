@@ -75,12 +75,6 @@ export function Header({
             <Hospital size={18} />
             <span>Serviços de Saúde</span>
           </a>
-          <a href="#estrangeiros" onClick={() => handleNavClick("foreigners")}>
-            <Globe size={18} />
-            <span>Extranjeros - Foreigners</span>
-          </a>
-          
-
           <a
             href="#primeiros-socorros"
             onClick={() => handleNavClick("primeiros-socorros")}
@@ -97,6 +91,10 @@ export function Header({
           <a href="#videos" onClick={() => handleNavClick("videos")}>
             <Video size={18} />
             <span>Vídeos educativos</span>
+          </a>
+          <a href="#estrangeiros" onClick={() => handleNavClick("foreigners")}>
+            <Globe size={18} />
+            <span>Extranjeros - Foreigners</span>
           </a>
           <a href="#sobre" onClick={() => handleNavClick("sobre")}>
             <Info size={18} />
