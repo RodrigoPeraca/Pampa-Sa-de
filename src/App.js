@@ -16,11 +16,6 @@ import { AboutPage } from "./components/AboutPage.js";
 import { InfoTabs } from "./components/InfoTabs.js";
 import { InstitutionLogos } from "./components/InstitutionLogos.js";
 import { ForeignersPage } from "./components/ForeignersPage.js";
-import { NotificationProvider } from "./components/NotificationProvider.js";
-import { HealthCampaignsPage } from "./components/HealthCampaignsPage.js";
-import { FirstAidPage } from "./components/FirstAidPage.js";
-import { UsefulPhonesPage } from "./components/UsefulPhonesPage.js";
-import { VideosPage } from "./components/VideosPage.js";
 
 // Imports do hook
 import { useFacilities } from "./hooks/useFacilities.js";
@@ -30,7 +25,7 @@ function App() {
   const [filterType, setFilterType] = useState("all");
   const [activeInfoTab, setActiveInfoTab] = useState("devs");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
- const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'|'healthCampaigns'|'firstAid'|'usefulPhones'|'videos'
+  const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'
 
   // Hook personalizado para filtragem
   const { filteredFacilities, totalServices} = useFacilities(
@@ -94,7 +89,7 @@ function AppContent({
           setFilterType={setFilterType}
           setActivePage={setActivePage}
         />
-        ) : activePage === "foreigners" ? (
+      ) : activePage === "foreigners" ? (
         <ForeignersPage setActivePage={setActivePage} />
       ) : activePage === "sobre" ? (
         <AboutPage setActivePage={setActivePage} />

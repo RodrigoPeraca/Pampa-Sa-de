@@ -2,7 +2,7 @@
 // Componente de cabeçalho (hero) do aplicativo
 
 import React from "react";
-import { Menu, X, Home, Hospital, Info, Globe } from "lucide-react";
+import { Menu, X, Home, Hospital, Info, Globe, Heart, Stethoscope, Phone, Video } from "lucide-react";
 import { FACILITIES } from "../data/facilities.js";
 
 export function Header({
@@ -67,11 +67,32 @@ export function Header({
             <Home size={18} />
             <span>Inicio</span>
           </a>
+          <a href="#campanhas" onClick={() => handleNavClick("campanhas")}>
+            <Heart size={18} />
+            <span>Campanhas de Saúde</span>
+          </a>
           <a href="#unidades" onClick={() => handleNavClick("servicos")}>
             <Hospital size={18} />
             <span>Serviços de Saúde</span>
           </a>
-           <a href="#estrangeiros" onClick={() => handleNavClick("foreigners")}>
+          <a
+            href="#primeiros-socorros"
+            onClick={() => handleNavClick("primeiros-socorros")}
+          >
+            <Stethoscope size={18} />
+            <span>Primeiros socorros</span>
+          </a>
+
+          <a href="#telefones" onClick={() => handleNavClick("telefones")}>
+            <Phone size={18} />
+            <span>Telefones úteis</span>
+          </a>
+
+          <a href="#videos" onClick={() => handleNavClick("videos")}>
+            <Video size={18} />
+            <span>Vídeos educativos</span>
+          </a>
+          <a href="#estrangeiros" onClick={() => handleNavClick("foreigners")}>
             <Globe size={18} />
             <span>Extranjeros - Foreigners</span>
           </a>
@@ -79,7 +100,6 @@ export function Header({
             <Info size={18} />
             <span>Sobre o Pampa Saúde</span>
           </a>
-         
         </nav>
       </aside>
 
