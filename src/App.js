@@ -16,6 +16,11 @@ import { AboutPage } from "./components/AboutPage.js";
 import { InfoTabs } from "./components/InfoTabs.js";
 import { InstitutionLogos } from "./components/InstitutionLogos.js";
 import { ForeignersPage } from "./components/ForeignersPage.js";
+import { NotificationProvider } from "./components/NotificationProvider.js";
+import { HealthCampaignsPage } from "./components/HealthCampaignsPage.js";
+import { FirstAidPage } from "./components/FirstAidPage.js";
+import { UsefulPhonesPage } from "./components/UsefulPhonesPage.js";
+import { VideosPage } from "./components/VideosPage.js";
 
 // Imports do hook
 import { useFacilities } from "./hooks/useFacilities.js";
@@ -25,14 +30,53 @@ function App() {
   const [filterType, setFilterType] = useState("all");
   const [activeInfoTab, setActiveInfoTab] = useState("devs");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'
+ const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'|'healthCampaigns'|'firstAid'|'usefulPhones'|'videos'
 
   // Hook personalizado para filtragem
   const { filteredFacilities, totalServices} = useFacilities(
     searchTerm,
-    filterType
+    filterType,
   );
 
+  return (
+    <NotificationProvider
+      vapidKey={process.env.REACT_APP_FCM_VAPID_KEY}
+      autoRequest={process.env.REACT_APP_AUTO_REQUEST_NOTIFICATIONS !== "false"}
+      sendToBackend={false} // Mude para true se quiser enviar token ao backend
+      userId={null} // Passe o ID do usuário autenticado aqui
+    >
+      <AppContent
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterType={filterType}
+        setFilterType={setFilterType}
+        activeInfoTab={activeInfoTab}
+        setActiveInfoTab={setActiveInfoTab}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        activePage={activePage}
+        setActivePage={setActivePage}
+        filteredFacilities={filteredFacilities}
+        totalServices={totalServices}
+      />
+    </NotificationProvider>
+  );
+}
+
+function AppContent({
+  searchTerm,
+  setSearchTerm,
+  filterType,
+  setFilterType,
+  activeInfoTab,
+  setActiveInfoTab,
+  isMenuOpen,
+  setIsMenuOpen,
+  activePage,
+  setActivePage,
+  filteredFacilities,
+  totalServices,
+}) {
   return (
     <div className="app-shell">
       <Header
@@ -54,7 +98,16 @@ function App() {
         <ForeignersPage setActivePage={setActivePage} />
       ) : activePage === "sobre" ? (
         <AboutPage setActivePage={setActivePage} />
-      
+      ) : activePage === "foreigners" ? (
+        <ForeignersPage setActivePage={setActivePage} />
+      ) : activePage === "campanhas" ? (
+        <HealthCampaignsPage setActivePage={setActivePage} />
+      ) : activePage === "primeiros-socorros" ? (
+        <FirstAidPage setActivePage={setActivePage} />
+      ) : activePage === "telefones" ? (
+        <UsefulPhonesPage setActivePage={setActivePage} />
+      ) : activePage === "videos" ? (
+        <VideosPage setActivePage={setActivePage} />
       ) : (
         <>
           <SearchPanel
