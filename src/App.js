@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import './App.css';
+import Pharmacy from './pharmacy';
 
 const FACILITIES = [
   {
@@ -692,10 +693,15 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
   const [activeInfoTab, setActiveInfoTab] = useState('devs');
+  const [currentView, setCurrentView] = useState('farmácias');
 
   const totalServices = useMemo(() => {
     const pool = new Set();
-    FACILITIES.forEach((facility) => facility.services.forEach((service) => pool.add(service)));
+    FACILITIES.forEach((facility) => {
+      if (facility.services && Array.isArray(facility.services)) {
+        facility.services.forEach((service) => pool.add(service));
+      }
+    });
     return pool.size;
   }, []);
 
@@ -756,166 +762,188 @@ function App() {
         </div>
       </header>
 
-      <section className="panel search-panel">
-        <label htmlFor="search">Busque por bairro, serviço ou unidade</label>
-        <input
-          id="search"
-          type="text"
-          placeholder="Ex.: vacinação, Damasceno, ESF..."
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-        <div className="filters">
-          <select value={filterType} onChange={(event) => setFilterType(event.target.value)}>
-            <option value="all">Todas as tipologias</option>
-            <option value="UBS">Unidades Básicas de Saúde</option>
-            <option value="ESF">Estratégias Saúde da Família</option>
-            <option value="CAPS">Centros de Atenção Psicossocial</option>
-            <option value="SAIS">Serviços de Atenção Integral à Saúde</option>
-            <option value="UPA">Unidades de Pronto Atendimento</option>
-            <option value="Hospital">Hospitais</option>
-            <option value="SAMU">Serviço de Atendimento Móvel de Urgência</option>
-          </select>
-          <button type="button" onClick={() => setFilterType('all')}>
-            Limpar filtro
-          </button>
-        </div>
-        <p className="panel-hint">
-          Resultado mostra {filteredFacilities.length}{' '}
-          {filteredFacilities.length === 1 ? 'unidade' : 'unidades'} • {TYPE_LABELS[filterType]}
-        </p>
-      </section>
-
-      {!hasFilter && (
-        <section className="panel institution-logos">
-          <div className="tab-content">
-            <div className="container">
-              <h3>Parceiros institucionais</h3>
-              <div className="grid">
-                {INSTITUTION_LOGOS.map((logo) => (
-                  <div key={logo.id} className="card">
-                    <img src={logo.url} alt={logo.alt} loading="lazy" />
-                    <p className="name">{logo.name}</p>
-                    <p className="role">{logo.tagline}</p>
-                  </div>
-                ))}
-              </div>
+      <div className="tab-controls" style={{ justifyContent: 'center', margin: '2rem 0' }}>
+        <button 
+          className={currentView === 'unidades' ? 'active' : ''} 
+          onClick={() => setCurrentView('unidades')}
+        >
+          Unidades de Saúde
+        </button>
+        <button 
+          className={currentView === 'farmacias' ? 'active' : ''} 
+          onClick={() => setCurrentView('farmacias')}
+        >
+          Farmácias Públicas
+        </button>
+      </div>
+      
+      {/* renderização condicional */}
+      {currentView === 'unidades' ? (
+        <>
+          <section className="panel search-panel">
+            <label htmlFor="search">Busque por bairro, serviço ou unidade</label>
+            <input
+              id="search"
+              type="text"
+              placeholder="Ex.: vacinação, Damasceno, ESF..."
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
+            <div className="filters">
+              <select value={filterType} onChange={(event) => setFilterType(event.target.value)}>
+                <option value="all">Todas as tipologias</option>
+                <option value="UBS">Unidades Básicas de Saúde</option>
+                <option value="ESF">Estratégias Saúde da Família</option>
+                <option value="CAPS">Centros de Atenção Psicossocial</option>
+                <option value="SAIS">Serviços de Atenção Integral à Saúde</option>
+                <option value="UPA">Unidades de Pronto Atendimento</option>
+                <option value="Hospital">Hospitais</option>
+                <option value="SAMU">Serviço de Atendimento Móvel de Urgência</option>
+              </select>
+              <button type="button" onClick={() => setFilterType('all')}>
+                Limpar filtro
+              </button>
             </div>
-          </div>
-        </section>
-      )}
+            <p className="panel-hint">
+              Resultado mostra {filteredFacilities.length}{' '}
+              {filteredFacilities.length === 1 ? 'unidade' : 'unidades'} • {TYPE_LABELS[filterType]}
+            </p>
+          </section>
 
-      {!hasFilter && (
-        <section className="panel info-tabs">
-        <div className="tab-controls">
-          <button
-            className={activeInfoTab === 'devs' ? 'active' : ''}
-            onClick={() => setActiveInfoTab('devs')}
-          >
-            Desenvolvedores
-          </button>
-
-          <button
-            className={activeInfoTab === 'unipampa' ? 'active' : ''}
-            onClick={() => setActiveInfoTab('unipampa')}
-          >
-            Unipampa  
-          </button>
-        </div>
-
-        <div className="tab-content">
-          <h3>{TAB_CONTENT[activeInfoTab].title}</h3>
-          <p>{TAB_CONTENT[activeInfoTab].description}</p>
-
-          {activeInfoTab === 'devs' && (
-            <div className="container">
-              <div className="grid"> 
-              {DEVELOPERS.map((person) => {
-                const isHealthStaff = person.role.includes('Saúde');
-                return (
-                  <div key={person.name} className={`card ${isHealthStaff ? 'health-card' : ''}`}>
-                    <h3 className="name">{isHealthStaff ? '🏥 ' : '👤 '}{person.name}</h3>
-                    <p className="role">{person.role}</p>
-                    <p className="focus">{isHealthStaff ? '🩺' : '💻'} {person.focus}</p>
-                    <a className="email" href={`mailto:${person.contact}`}>
-                      📧 {person.contact}
-                    </a>
+          {!hasFilter && (
+            <section className="panel institution-logos">
+              <div className="tab-content">
+                <div className="container">
+                  <h3>Parceiros institucionais</h3>
+                  <div className="grid">
+                    {INSTITUTION_LOGOS.map((logo) => (
+                      <div key={logo.id} className="card">
+                        <img src={logo.url} alt={logo.alt} loading="lazy" />
+                        <p className="name">{logo.name}</p>
+                        <p className="role">{logo.tagline}</p>
+                      </div>
+                    ))}
                   </div>
-                );
-              })}
+                </div>
               </div>
-            </div>
+            </section>
           )}
 
-          {activeInfoTab === 'unipampa' && (
-            <ul className="unipampa-list">
-              <li>
-                <strong>Campus Bagé:</strong> referência em Engenharia de Computação com laboratórios
-                orientados a soluções para o SUS.
-              </li>
-              <li>
-                <strong>Observatório Pampa Saúde:</strong> monitora indicadores e apoia equipes das UBS/ESF.
-              </li>
-              <li>
-                <strong>Prefeitura Municipal:</strong> integra dados oficiais de serviços, horários e campanhas
-                de vacinação.
-              </li>
-            </ul>
+          {!hasFilter && (
+            <section className="panel info-tabs">
+            <div className="tab-controls">
+              <button
+                className={activeInfoTab === 'devs' ? 'active' : ''}
+                onClick={() => setActiveInfoTab('devs')}
+              >
+                Desenvolvedores
+              </button>
+
+              <button
+                className={activeInfoTab === 'unipampa' ? 'active' : ''}
+                onClick={() => setActiveInfoTab('unipampa')}
+              >
+                Unipampa  
+              </button>
+            </div>
+
+            <div className="tab-content">
+              <h3>{TAB_CONTENT[activeInfoTab].title}</h3>
+              <p>{TAB_CONTENT[activeInfoTab].description}</p>
+
+              {activeInfoTab === 'devs' && (
+                <div className="container">
+                  <div className="grid"> 
+                  {DEVELOPERS.map((person) => {
+                    const isHealthStaff = person.role.includes('Saúde');
+                    return (
+                      <div key={person.name} className={`card ${isHealthStaff ? 'health-card' : ''}`}>
+                        <h3 className="name">{isHealthStaff ? '🏥 ' : '👤 '}{person.name}</h3>
+                        <p className="role">{person.role}</p>
+                        <p className="focus">{isHealthStaff ? '🩺' : '💻'} {person.focus}</p>
+                        <a className="email" href={`mailto:${person.contact}`}>
+                          📧 {person.contact}
+                        </a>
+                      </div>
+                    );
+                  })}
+                  </div>
+                </div>
+              )}
+
+              {activeInfoTab === 'unipampa' && (
+                <ul className="unipampa-list">
+                  <li>
+                    <strong>Campus Bagé:</strong> referência em Engenharia de Computação com laboratórios
+                    orientados a soluções para o SUS.
+                  </li>
+                  <li>
+                    <strong>Observatório Pampa Saúde:</strong> monitora indicadores e apoia equipes das UBS/ESF.
+                  </li>
+                  <li>
+                    <strong>Prefeitura Municipal:</strong> integra dados oficiais de serviços, horários e campanhas
+                    de vacinação.
+                  </li>
+                </ul>
+              )}
+            </div>
+          </section>
           )}
-        </div>
-      </section>
-      )}
 
-      <section className="cards-grid">
-        {filteredFacilities.map((facility) => (
-          <article key={facility.id} className="facility-card">
-            <header>
-              <div>
-                <p className="facility-type">{facility.type}</p>
-                <h2>{facility.name}</h2>
-                <p className="facility-neighborhood">{facility.neighborhood}</p>
+          <section className="cards-grid">
+            {filteredFacilities.map((facility) => (
+              <article key={facility.id} className="facility-card">
+                <header>
+                  <div>
+                    <p className="facility-type">{facility.type}</p>
+                    <h2>{facility.name}</h2>
+                    <p className="facility-neighborhood">{facility.neighborhood}</p>
+                  </div>
+                  <span className="facility-badge">{TYPE_LABELS[facility.type]}</span>
+                </header>
+
+                <div className="facility-info">
+                  <p>
+                    <strong>Endereço:</strong> {facility.address}
+                  </p>
+                  <p>
+                    <strong>Horário:</strong> {facility.hours}
+                  </p>
+                  <p>
+                    <strong>Telefone:</strong> {facility.phone}
+                  </p>
+                </div>
+
+                <div className="facility-services">
+                  {facility.services.map((service) => (
+                    <span key={service}>{service}</span>
+                  ))}
+                </div>
+
+                <p className="facility-notes">{facility.notes}</p>
+
+                <div className="facility-actions">
+                  <a href={facility.googleMaps} target="_blank" rel="noreferrer">
+                    Ver no Maps
+                  </a>
+                  <a href={`tel:${facility.phone.replace(/\D/g, '')}`}>Ligar</a>
+                </div>
+              </article>
+            ))}
+
+            {filteredFacilities.length === 0 && (
+              <div className="empty-state">
+                <p>Nenhuma unidade encontrada com os filtros atuais.</p>
+                <button type="button" onClick={() => setSearchTerm('')}>
+                  Limpar busca
+                </button>
               </div>
-              <span className="facility-badge">{TYPE_LABELS[facility.type]}</span>
-            </header>
-
-            <div className="facility-info">
-              <p>
-                <strong>Endereço:</strong> {facility.address}
-              </p>
-              <p>
-                <strong>Horário:</strong> {facility.hours}
-              </p>
-              <p>
-                <strong>Telefone:</strong> {facility.phone}
-              </p>
-            </div>
-
-            <div className="facility-services">
-              {facility.services.map((service) => (
-                <span key={service}>{service}</span>
-              ))}
-            </div>
-
-            <p className="facility-notes">{facility.notes}</p>
-
-            <div className="facility-actions">
-              <a href={facility.googleMaps} target="_blank" rel="noreferrer">
-                Ver no Maps
-              </a>
-              <a href={`tel:${facility.phone.replace(/\D/g, '')}`}>Ligar</a>
-            </div>
-          </article>
-        ))}
-
-        {filteredFacilities.length === 0 && (
-          <div className="empty-state">
-            <p>Nenhuma unidade encontrada com os filtros atuais.</p>
-            <button type="button" onClick={() => setSearchTerm('')}>
-              Limpar busca
-            </button>
-          </div>
-        )}
-      </section>
+            )}
+          </section>
+        </>
+      ) : (
+        <Pharmacy />
+      )}
 
       <footer className="app-footer">
         <p>
