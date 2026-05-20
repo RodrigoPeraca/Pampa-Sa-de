@@ -26,7 +26,7 @@ const PHARMACIES = [
   }
 ];
 
-export default function Pharmacy() {
+export default function Pharmacy({ setActivePage }){
   // Estados do componente
   const [selectedPharmacy, setSelectedPharmacy] = useState(PHARMACIES[0]); // Começa com a primeira farmácia selecionada
   const [searchMedicine, setSearchMedicine] = useState('');
@@ -43,6 +43,13 @@ export default function Pharmacy() {
 
   return (
     <div className="pharmacy-container">
+      <section className="about-hero" style={{ marginBottom: '1rem', padding: '1rem' }}>
+        <button type="button" className="back-button" onClick={() => setActivePage("home")} style={{ background: 'none', border: 'none', color: '#0b3b2e', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+          ← Voltar
+        </button>
+        <h2 style={{marginTop: '0.5rem'}}>Farmácias Públicas</h2>
+      </section>
+      
       <section className="panel search-panel">
         <label>Escolha a Unidade de Retirada</label>
         
