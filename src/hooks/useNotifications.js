@@ -77,6 +77,7 @@ export const useNotifications = ({
         if (storedToken) {
           if (isMounted){ 
           setFcmToken(storedToken);
+          await saveTokenToFirestore(storedToken);
           console.log("🔔 MEU TOKEN FCM:", storedToken);
           }
         } else if (autoRequest) {
