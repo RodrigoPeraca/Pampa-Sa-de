@@ -1,16 +1,9 @@
 const admin = require("firebase-admin");
 
 if (!admin.apps.length) {
-  const privateKey = Buffer.from(
-    process.env.FIREBASE_PRIVATE_KEY_BASE64, "base64"
-  ).toString("utf8");
-
+  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
   admin.initializeApp({
-    credential: admin.credential.cert({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey,
-    }),
+    credential: admin.credential.cert(serviceAccount),
   });
 }
 
