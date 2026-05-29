@@ -56,9 +56,8 @@ module.exports = async (req, res) => {
           code === "messaging/invalid-registration-token" ||
           code === "messaging/registration-token-not-registered"
         ) {
-          batch.update(
-            db.collection("fcm_tokens").doc(tokens[index].id),
-            { active: false }
+          batch.delete(
+            db.collection("fcm_tokens").doc(tokens[index].id)
           );
         }
       }
