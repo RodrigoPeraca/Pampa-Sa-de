@@ -23,14 +23,18 @@ import { UsefulPhonesPage } from "./components/UsefulPhonesPage.js";
 import { VideosPage } from "./components/VideosPage.js";
 // Imports do hook
 import { useFacilities } from "./hooks/useFacilities.js";
+// Import page
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [activeInfoTab, setActiveInfoTab] = useState("devs");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'
-
+  // Detecta rota /mensagem na URL
+  const [activePage, setActivePage] = useState( // 'home' | 'servicos' |'sobre'|'foreigners'
+    window.location.pathname === "/mensagem" ? "mensagem" : "home"
+  );
   // Hook personalizado para filtragem
   const { filteredFacilities, totalServices} = useFacilities(
     searchTerm,
@@ -107,7 +111,9 @@ function AppContent({
         <UsefulPhonesPage setActivePage={setActivePage} />
       ) : activePage === "videos" ? (
         <VideosPage setActivePage={setActivePage} />
-      ) : (
+      ) : activePage === "mensagem" ? (
+        <AdminPage />
+      ) : (  
         <>
           <SearchPanel
             searchTerm={searchTerm}
