@@ -1,11 +1,7 @@
-// src/firebase/firebase.js
-// Configuração modular do Firebase v9+
-
 import { initializeApp } from "firebase/app";
 import { getMessaging, isSupported } from "firebase/messaging";
 import { getFirestore } from "firebase/firestore";
 
-//Credencial real do firebase do projeto Pampa Saúde 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -16,21 +12,22 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 
-// Inicializa Firebase Messaging se suportado
 let messaging = null;
 
-if (isSupported()) {
-  const app = initializeApp(firebaseConfig);
-  messaging = getMessaging(app);
+const initMessaging = async () => {
+  const supported = await isSupported();
+  if (supported && "serviceWorker" in navigator) {
+    messaging = getMessaging(app);
 
-  // Força usar o service-worker.js em vez do firebase-messaging-sw.js
-  navigator.serviceWorker.register("/service-worker.js").then((registration) => {
-    messaging.useServiceWorker && messaging.useServiceWorker(registration);
-  });
-}
+    // Aguarda o service worker já registrado pelo serviceWorkerRegistration.js
+    const registration = await navigator.serviceWorker.ready;
+    messaging.swRegistration = registration;
+  }
+};
+
+initMessaging();
 
 export { app, messaging };
-export const db = getFirestore(app);
