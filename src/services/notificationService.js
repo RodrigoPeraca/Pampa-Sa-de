@@ -1,6 +1,7 @@
 // src/services/notificationService.js
 // Serviço centralizador para Firebase Cloud Messaging
-
+import { db } from "../firebase/firebase";
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { messaging } from "../firebase/firebase";
 import {
   getToken,
@@ -157,16 +158,6 @@ export const onMessageListener = (onMessageReceived) => {
       if (onMessageReceived) {
         onMessageReceived(notificationData);
       }
-
-      // Exibe notificação visual se permitido
-      if (isNotificationPermissionGranted()) {
-        new Notification(notificationData.title, {
-          body: notificationData.body,
-          icon: notificationData.icon || notificationData.image,
-          image: notificationData.image,
-          tag: "foreground-notification",
-        });
-      }
     });
   } catch (error) {
     console.error("Erro ao configurar listener de mensagens:", error);
@@ -218,5 +209,39 @@ export const sendTokenToBackend = async (
   } catch (error) {
     console.error("Erro ao enviar token ao backend:", error);
     throw error;
+  }
+};
+
+// Flag para evitar chamadas simultâneas
+let isSavingToken = false;
+
+export const saveTokenToFirestore = async (token) => {
+  // Se já está salvando, ignora
+  if (isSavingToken) return;
+  isSavingToken = true;
+
+  try {
+    const q = query(
+      collection(db, "fcm_tokens"),
+      where("token", "==", token)
+    );
+    const existing = await getDocs(q);
+    if (!existing.empty) {
+      console.log("Token já existe no Firestore, ignorando...");
+      return;
+    }
+
+    await addDoc(collection(db, "fcm_tokens"), {
+      token,
+      platform: "web",
+      createdAt: new Date(),
+      active: true,
+    });
+
+    console.log("Token salvo no Firestore");
+  } catch (error) {
+    console.error("Erro ao salvar token:", error);
+  } finally {
+    isSavingToken = false;
   }
 };

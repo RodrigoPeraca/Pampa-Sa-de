@@ -1,28 +1,33 @@
-// src/firebase/firebase.js
-// Configuração modular do Firebase v9+
-
 import { initializeApp } from "firebase/app";
 import { getMessaging, isSupported } from "firebase/messaging";
+import { getFirestore } from "firebase/firestore";
 
-//Credencial real do firebase do projeto Pampa Saúde 
 const firebaseConfig = {
-  apiKey: "AIzaSyA_BZSRZFImnVwogdFvkdbufcIEKMjLYBY",
-  authDomain: "pampa-saude.firebaseapp.com",
-  projectId: "pampa-saude",
-  storageBucket: "pampa-saude.firebasestorage.app",
-  messagingSenderId: "403037160519",
-  appId: "1:403037160519:web:b072da322c05bf61631d62",
-  measurementId: "G-BKG2Z3SS6Z"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 
-// Inicializa Firebase Messaging se suportado
 let messaging = null;
 
-if (isSupported()) {
-  messaging = getMessaging(app);
-}
+const initMessaging = async () => {
+  const supported = await isSupported();
+  if (supported && "serviceWorker" in navigator) {
+    messaging = getMessaging(app);
+
+    // Aguarda o service worker já registrado pelo serviceWorkerRegistration.js
+    const registration = await navigator.serviceWorker.ready;
+    messaging.swRegistration = registration;
+  }
+};
+
+initMessaging();
 
 export { app, messaging };

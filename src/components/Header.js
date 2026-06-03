@@ -2,7 +2,7 @@
 // Componente de cabeçalho (hero) do aplicativo
 
 import React from "react";
-import { Menu, X, Home, Hospital, Info, Globe, Heart, Stethoscope, Phone, Video, PillBottle } from "lucide-react";
+import { Menu, X, Home, Hospital, Info, Globe, Heart, Stethoscope, Phone, Video, Pill } from "lucide-react";
 import { FACILITIES } from "../data/facilities.js";
 
 export function Header({
@@ -76,7 +76,7 @@ export function Header({
             <span>Serviços de Saúde</span>
           </a>
           <a href="#farmacias" onClick={() => handleNavClick("farmacias")}>
-            <PillBottle size={18} />
+            <Pill size={18} />
             <span>Farmácias Públicas</span>
           </a>
           <a

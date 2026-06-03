@@ -3,7 +3,6 @@
 
 import React, { useState } from "react";
 import "./App.css";
-import Pharmacy from './pharmacy';
 
 // Imports dos dados
 // (InstitutionLogos usado indiretamente via componente)
@@ -22,17 +21,21 @@ import { HealthCampaignsPage } from "./components/HealthCampaignsPage.js";
 import { FirstAidPage } from "./components/FirstAidPage.js";
 import { UsefulPhonesPage } from "./components/UsefulPhonesPage.js";
 import { VideosPage } from "./components/VideosPage.js";
-
+import Pharmacy from "./components/Pharmacy.js";
 // Imports do hook
 import { useFacilities } from "./hooks/useFacilities.js";
+// Import page
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [activeInfoTab, setActiveInfoTab] = useState("devs");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activePage, setActivePage] = useState("home"); // 'home' | 'servicos' |'sobre'|'foreigners'
-
+  // Detecta rota /mensagem na URL
+  const [activePage, setActivePage] = useState( // 'home' | 'servicos' |'sobre'|'foreigners'
+    window.location.pathname === "/mensagem" ? "mensagem" : "home"
+  );
   // Hook personalizado para filtragem
   const { filteredFacilities, totalServices} = useFacilities(
     searchTerm,
@@ -109,9 +112,13 @@ function AppContent({
         <FirstAidPage setActivePage={setActivePage} />
       ) : activePage === "telefones" ? (
         <UsefulPhonesPage setActivePage={setActivePage} />
+      ) : activePage === "farmacias" ? (
+        <Pharmacy />
       ) : activePage === "videos" ? (
         <VideosPage setActivePage={setActivePage} />
-      ) : (
+      ) : activePage === "mensagem" ? (
+        <AdminPage />
+      ) : (  
         <>
           <SearchPanel
             searchTerm={searchTerm}
